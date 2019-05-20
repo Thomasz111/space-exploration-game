@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class CellCoordPosition : MonoBehaviour {
-    public static double CellSize = 500.0;
+    public static double CellSize = 100.0;
 
     public double LocalX;
     public double LocalY;
@@ -25,9 +25,46 @@ public class CellCoordPosition : MonoBehaviour {
         this.GlobalZ = GlobalZ;
     }
 
+    public Vector3 GetLocalPos()
+    {
+        return new Vector3((float)LocalX, (float)LocalY, (float)LocalZ);
+    }
+
+    public Vector3 GetGlobalPos()
+    {
+        return new Vector3(GlobalX, GlobalX, GlobalX);
+    }
+
     public bool OutOfCell() {
         return LocalX >= CellSize || LocalY >= CellSize || LocalZ >= CellSize ||
             LocalX < 0 || LocalY < 0 || LocalZ < 0;
+    }
+
+    public void SnapCoordsBackToCell() {
+        if (LocalX >= CellSize)
+        {
+            LocalX -= (int)(LocalX / CellSize) * CellSize;
+        }
+        if (LocalY >= CellSize)
+        {
+            LocalY -= (int)(LocalY / CellSize) * CellSize;
+        }
+        if (LocalZ >= CellSize)
+        {
+            LocalZ -= (int)(LocalZ / CellSize) * CellSize;
+        }
+        if (LocalX < 0)
+        {
+            LocalX += (Mathf.Abs((int)(LocalX / CellSize))+1) * CellSize;
+        }
+        if (LocalY < 0)
+        {
+            LocalY += (Mathf.Abs((int)(LocalY / CellSize)) + 1) * CellSize;
+        }
+        if (LocalZ < 0)
+        {
+            LocalZ += (Mathf.Abs((int)(LocalZ / CellSize)) + 1) * CellSize;
+        }
     }
 
     public CellCoordPosition(Vector3 localXYZ, double scale = 1){

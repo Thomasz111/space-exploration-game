@@ -34,7 +34,11 @@ public class CellCoordCameraMovement : MonoBehaviour
 
         transform.Translate(transform.forward * flySpeed, Space.World);
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
-        Debug.Log(cellCoordPosition.OutOfCell());
+        if (cellCoordPosition.OutOfCell())
+        {
+            cellCoordPosition.SnapCoordsBackToCell();
+            transform.position = cellCoordPosition.GetLocalPos();
+        }
 	}
 
     private void ManageRotation() {

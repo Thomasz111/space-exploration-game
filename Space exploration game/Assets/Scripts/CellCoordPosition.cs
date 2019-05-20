@@ -100,6 +100,36 @@ public class CellCoordPosition : MonoBehaviour {
         }
     }
 
+    public Vector3 GetSnapVector()
+    {
+        Vector3 snapVector = new Vector3();
+        if(LocalX >= CellSize)
+        {
+            snapVector.x = (int)(LocalX);
+        }
+        if (LocalY >= CellSize)
+        {
+            snapVector.y = (int)(LocalY);
+        }
+        if (LocalZ >= CellSize)
+        {
+            snapVector.z = (int)(LocalZ);
+        }
+        if (LocalX < 0)
+        {
+            snapVector.x = -(int)(LocalX) + 1;
+        }
+        if (LocalY < 0)
+        {
+            snapVector.y = -(int)(LocalY) + 1;
+        }
+        if (LocalZ < 0)
+        {
+            snapVector.z = -(int)(LocalZ) + 1;
+        }
+        return snapVector;
+    }
+
     public CellCoordPosition(Vector3 localXYZ, double scale = 1){
         LocalX = localXYZ.x * scale;
         LocalY = localXYZ.y * scale;

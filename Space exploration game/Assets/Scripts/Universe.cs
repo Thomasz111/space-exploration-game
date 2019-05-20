@@ -7,6 +7,8 @@ public class Universe : MonoBehaviour {
     public double cellSize = 500.0;
     public List<PrefabCoord> prefabCoords = new List<PrefabCoord>();
 
+    private List<GameObject> universeObjects = new List<GameObject>();
+
     void Start () {
         InstatntiateUniverseObjects();
 	}
@@ -21,7 +23,17 @@ public class Universe : MonoBehaviour {
             cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
             prefabCoord.prefab.transform.position = cellCoordPosition.GetRealPosition();
 
-            GameObject.Instantiate(prefabCoord.prefab);
+            universeObjects.Add(GameObject.Instantiate(prefabCoord.prefab));
+        }
+    }
+
+    public void SnapUniverse(Vector3 snapVector)
+    {
+        foreach(GameObject universeObject in universeObjects)
+        {
+            Debug.Log(snapVector);
+            Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
+            transform.Translate(-snapVector);
         }
     }
 

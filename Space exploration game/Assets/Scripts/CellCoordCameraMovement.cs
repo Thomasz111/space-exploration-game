@@ -9,6 +9,7 @@ public class CellCoordCameraMovement : MonoBehaviour
 	public float rotationSpeed = 120.0f;
     public float speedH = 5.0f;
     public float speedV = 5.0f;
+    public Universe universe;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -43,6 +44,7 @@ public class CellCoordCameraMovement : MonoBehaviour
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
         if (cellCoordPosition.OutOfCell())
         {
+            universe.SnapUniverse(cellCoordPosition.GetSnapVector());
             cellCoordPosition.UpdateGlobalPos();
             cellCoordPosition.SnapCoordsBackToCell();
             transform.position = cellCoordPosition.GetLocalPos();

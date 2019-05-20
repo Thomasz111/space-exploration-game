@@ -16,22 +16,25 @@ public class CellCoordCameraMovement : MonoBehaviour
 	private Vector2 mouseAbsolute;
 	private Vector2 smoothMouse;
     private CellCoordPosition cellCoordPosition;
+    private double cellSize;
 
     void Start()
     {
         cellCoordPosition = (CellCoordPosition) gameObject.GetComponent(typeof(CellCoordPosition));
+        cellSize = CellCoordPosition.CellSize;
     }
 
-    void Update ()
-	{
+    void Update()
+    {
         ManageRotation();
 
         // Camera keyboard movement
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
-			flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
-            
-		transform.Translate(transform.forward * flySpeed, Space.World);
+            flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
+
+        transform.Translate(transform.forward * flySpeed, Space.World);
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
+        Debug.Log(cellCoordPosition.OutOfCell());
 	}
 
     private void ManageRotation() {

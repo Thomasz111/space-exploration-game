@@ -25,7 +25,10 @@ public class CellCoordPosition : MonoBehaviour {
         this.GlobalZ = GlobalZ;
     }
 
-
+    public bool OutOfCell() {
+        return LocalX >= CellSize || LocalY >= CellSize || LocalZ >= CellSize ||
+            LocalX < 0 || LocalY < 0 || LocalZ < 0;
+    }
 
     public CellCoordPosition(Vector3 localXYZ, double scale = 1){
         LocalX = localXYZ.x * scale;

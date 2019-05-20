@@ -40,6 +40,11 @@ public class CellCoordPosition : MonoBehaviour {
             LocalX < 0 || LocalY < 0 || LocalZ < 0;
     }
 
+    public Vector3 GetRealPosition()
+    {
+        return new Vector3((float)(GlobalX * CellSize + LocalX), (float)(GlobalY * CellSize + LocalY), (float)(GlobalZ * CellSize + LocalZ));
+    }
+
     public void UpdateGlobalPos()
     {
         if (LocalX >= CellSize)

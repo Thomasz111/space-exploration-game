@@ -23,18 +23,15 @@ public class CellCoordCameraMovement : MonoBehaviour
         transform.Rotate(new Vector3(pitch, yaw, 0.0f));
 
 		// Camera Keyboard rotation (Z)
-		if (Input.GetKey(KeyCode.Q))
+		if (Input.GetKey(KeyCode.A))
 			transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-		else if (Input.GetKey(KeyCode.E))
+		else if (Input.GetKey(KeyCode.D))
 			transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
 
 		// Camera keyboard movement
 		if (Input.GetAxis("Mouse ScrollWheel") != 0)
 			flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
-
-		if (Input.GetAxis("Vertical") != 0)
-			transform.Translate(transform.forward * flySpeed * Input.GetAxis ("Vertical"), Space.World);
-		if (Input.GetAxis("Horizontal") != 0)
-			transform.Translate(transform.right * flySpeed * Input.GetAxis ("Horizontal"), Space.World);
+            
+		transform.Translate(transform.forward * flySpeed, Space.World);
 	}
 }

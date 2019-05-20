@@ -40,6 +40,34 @@ public class CellCoordPosition : MonoBehaviour {
             LocalX < 0 || LocalY < 0 || LocalZ < 0;
     }
 
+    public void UpdateGlobalPos()
+    {
+        if (LocalX >= CellSize)
+        {
+            GlobalX += (int)(LocalX / CellSize);
+        }
+        if (LocalY >= CellSize)
+        {
+            GlobalY += (int)(LocalY / CellSize);
+        }
+        if (LocalZ >= CellSize)
+        {
+            GlobalZ += (int)(LocalZ / CellSize);
+        }
+        if (LocalX < 0)
+        {
+            GlobalX -= (int)(LocalX / CellSize) + 1;
+        }
+        if (LocalY < 0)
+        {
+            GlobalY -= (int)(LocalY / CellSize) + 1;
+        }
+        if (LocalZ < 0)
+        {
+            GlobalZ -= (int)(LocalZ / CellSize) + 1;
+        }
+    }
+
     public void SnapCoordsBackToCell() {
         if (LocalX >= CellSize)
         {

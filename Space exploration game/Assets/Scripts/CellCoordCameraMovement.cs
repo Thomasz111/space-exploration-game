@@ -27,19 +27,27 @@ public class CellCoordCameraMovement : MonoBehaviour
     void Update()
     {
         ManageRotation();
+        ManageTransform();
+	}
 
+    private void ManageTransform() {
         // Camera keyboard movement
         if (Input.GetAxis("Mouse ScrollWheel") != 0)
             flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
 
+        ManageCoordinates();
+    }
+
+    private void ManageCoordinates() {
         transform.Translate(transform.forward * flySpeed, Space.World);
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
         if (cellCoordPosition.OutOfCell())
         {
+            cellCoordPosition.UpdateGlobalPos();
             cellCoordPosition.SnapCoordsBackToCell();
             transform.position = cellCoordPosition.GetLocalPos();
         }
-	}
+    }
 
     private void ManageRotation() {
         // Camera Mouse rotation (XY)

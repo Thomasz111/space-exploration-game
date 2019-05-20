@@ -17,13 +17,15 @@ public class Universe : MonoBehaviour {
     {
         foreach(PrefabCoord prefabCoord in prefabCoords)
         {
-            prefabCoord.prefab.AddComponent(typeof(CellCoordPosition));
-            CellCoordPosition cellCoordPosition = (CellCoordPosition) prefabCoord.prefab.GetComponent(typeof(CellCoordPosition));
+            GameObject universeObject = GameObject.Instantiate(prefabCoord.prefab);
+
+            universeObject.AddComponent(typeof(CellCoordPosition));
+            CellCoordPosition cellCoordPosition = (CellCoordPosition) universeObject.GetComponent(typeof(CellCoordPosition));
             cellCoordPosition.SetLocalPosition(prefabCoord.LocalX, prefabCoord.LocalY, prefabCoord.LocalZ);
             cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
-            prefabCoord.prefab.transform.position = cellCoordPosition.GetRealPosition();
+            universeObject.transform.position = cellCoordPosition.GetRealPosition();
 
-            universeObjects.Add(GameObject.Instantiate(prefabCoord.prefab));
+            universeObjects.Add(universeObject);
         }
     }
 
@@ -31,7 +33,6 @@ public class Universe : MonoBehaviour {
     {
         foreach(GameObject universeObject in universeObjects)
         {
-            Debug.Log(snapVector);
             Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
             transform.Translate(-snapVector);
         }

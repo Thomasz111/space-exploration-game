@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class CellCoordPosition : MonoBehaviour {
-    public static double CellSize = 100.0;
+    public static long CellSize = 100;
 
     public double LocalX;
     public double LocalY;
@@ -105,27 +105,27 @@ public class CellCoordPosition : MonoBehaviour {
         Vector3 snapVector = new Vector3();
         if(LocalX >= CellSize)
         {
-            snapVector.x = (int)(LocalX);
+            snapVector.x = (int)(LocalX / CellSize) * CellSize;
         }
         if (LocalY >= CellSize)
         {
-            snapVector.y = (int)(LocalY);
+            snapVector.y = (int)(LocalY / CellSize) * CellSize;
         }
         if (LocalZ >= CellSize)
         {
-            snapVector.z = (int)(LocalZ);
+            snapVector.z = (int)(LocalZ / CellSize) * CellSize;
         }
         if (LocalX < 0)
         {
-            snapVector.x = -(int)(LocalX) + 1;
+            snapVector.x = -((int)(LocalX / CellSize) + 1) * CellSize;
         }
         if (LocalY < 0)
         {
-            snapVector.y = -(int)(LocalY) + 1;
+            snapVector.y = -((int)(LocalY / CellSize) + 1) * CellSize;
         }
         if (LocalZ < 0)
         {
-            snapVector.z = -(int)(LocalZ) + 1;
+            snapVector.z = -((int)(LocalZ / CellSize) + 1) * CellSize;
         }
         return snapVector;
     }

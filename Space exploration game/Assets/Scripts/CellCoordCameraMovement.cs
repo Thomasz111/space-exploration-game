@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(CellCoordPosition))]
 public class CellCoordCameraMovement : MonoBehaviour 
 {
 	public float flySpeed = 1.0f;
@@ -14,8 +15,14 @@ public class CellCoordCameraMovement : MonoBehaviour
 	private Vector2	mouseDelta;
 	private Vector2 mouseAbsolute;
 	private Vector2 smoothMouse;
-	
-	void Update ()
+    private CellCoordPosition cellCoordPosition;
+
+    void Start()
+    {
+        cellCoordPosition = (CellCoordPosition) gameObject.GetComponent(typeof(CellCoordPosition));
+    }
+
+    void Update ()
 	{
         // Camera Mouse rotation (XY)
         yaw = speedH * Input.GetAxis("Mouse X");

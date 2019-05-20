@@ -11,6 +11,22 @@ public class CellCoordPosition : MonoBehaviour {
     public long GlobalY;
     public long GlobalZ;
 
+    public void SetLocalPosition(double LocalX, double LocalY, double LocalZ)
+    {
+        this.LocalX = LocalX;
+        this.LocalY = LocalY;
+        this.LocalZ = LocalZ;
+    }
+
+    public void SetGlobalPosition(long GlobalX, long GlobalY, long GlobalZ)
+    {
+        this.GlobalX = GlobalX;
+        this.GlobalY = GlobalY;
+        this.GlobalZ = GlobalZ;
+    }
+
+
+
     public CellCoordPosition(Vector3 localXYZ, double scale = 1){
         LocalX = localXYZ.x * scale;
         LocalY = localXYZ.y * scale;

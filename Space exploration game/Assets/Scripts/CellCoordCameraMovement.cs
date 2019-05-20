@@ -24,21 +24,26 @@ public class CellCoordCameraMovement : MonoBehaviour
 
     void Update ()
 	{
+        ManageRotation();
+
+        // Camera keyboard movement
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
+			flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
+            
+		transform.Translate(transform.forward * flySpeed, Space.World);
+        cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
+	}
+
+    private void ManageRotation() {
         // Camera Mouse rotation (XY)
         yaw = speedH * Input.GetAxis("Mouse X");
         pitch = -speedV * Input.GetAxis("Mouse Y");
         transform.Rotate(new Vector3(pitch, yaw, 0.0f));
 
-		// Camera Keyboard rotation (Z)
-		if (Input.GetKey(KeyCode.A))
-			transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
-		else if (Input.GetKey(KeyCode.D))
-			transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
-
-		// Camera keyboard movement
-		if (Input.GetAxis("Mouse ScrollWheel") != 0)
-			flySpeed = Mathf.Clamp(flySpeed + ((flySpeedLimit.y - flySpeedLimit.x) / 10.0f) * Input.GetAxis("Mouse ScrollWheel"), flySpeedLimit.x, flySpeedLimit.y);
-            
-		transform.Translate(transform.forward * flySpeed, Space.World);
-	}
+        // Camera Keyboard rotation (Z)
+        if (Input.GetKey(KeyCode.A))
+            transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+        else if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+    }
 }

@@ -6,6 +6,7 @@ public class Universe : MonoBehaviour {
 
     public readonly double cellSize = 100.0;
     public List<PrefabCoord> prefabCoords = new List<PrefabCoord>();
+    public CellCoordCameraMovement player;
 
     private List<GameObject> universeObjects = new List<GameObject>();
 
@@ -41,6 +42,10 @@ public class Universe : MonoBehaviour {
     }
 
     void Update () {
-		
+        if (player.OutOfBounds())
+        {
+            player.SnapCamera();
+            SnapUniverse(player.GetGlobalPos());
+        }
 	}
 }

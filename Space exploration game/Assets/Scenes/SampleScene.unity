@@ -510,6 +510,7 @@ MonoBehaviour:
     GlobalX: 2
     GlobalY: 0
     GlobalZ: 0
+  player: {fileID: 534669906}
 --- !u!1 &1063972868
 GameObject:
   m_ObjectHideFlags: 0

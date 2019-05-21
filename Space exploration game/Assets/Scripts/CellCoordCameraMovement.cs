@@ -42,16 +42,23 @@ public class CellCoordCameraMovement : MonoBehaviour
     private void ManageCoordinates() {
         transform.Translate(transform.forward * flySpeed, Space.World);
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
-        if (cellCoordPosition.OutOfCell())
-        {
-            //Vector3 snapVector = cellCoordPosition.GetSnapVector();
-            
-            cellCoordPosition.UpdateGlobalPos();
-            cellCoordPosition.SnapCoordsBackToCell();
-            transform.position = cellCoordPosition.GetLocalPos();
+    }
 
-            universe.SnapUniverse(cellCoordPosition.GetGlobalPos());
-        }
+    public Vector3 GetGlobalPos()
+    {
+        return cellCoordPosition.GetGlobalPos();
+    }
+
+    public void SnapCamera()
+    {
+        cellCoordPosition.UpdateGlobalPos();
+        cellCoordPosition.SnapCoordsBackToCell();
+        transform.position = cellCoordPosition.GetLocalPos();
+    }
+
+    public bool OutOfBounds()
+    {
+        return cellCoordPosition.OutOfCell();
     }
 
     private void ManageRotation() {

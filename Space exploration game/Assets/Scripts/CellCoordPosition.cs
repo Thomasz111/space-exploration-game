@@ -16,6 +16,11 @@ public class CellCoordPosition : MonoBehaviour {
         this.CellSize = CellSize;
     }
 
+    public long GetCellSize()
+    {
+        return CellSize;
+    }
+
     public void SetLocalPosition(double LocalX, double LocalY, double LocalZ)
     {
         this.LocalX = LocalX;

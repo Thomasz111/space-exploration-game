@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Universe : MonoBehaviour {
 
-    public readonly double cellSize = 100.0;
+    public static long CellSize = 100;
     public List<PrefabCoord> prefabCoords = new List<PrefabCoord>();
     public CellCoordCameraMovement player;
 
     private List<GameObject> universeObjects = new List<GameObject>();
 
     void Start () {
+        InstantiatePlayer();
         InstatntiateUniverseObjects();
 	}
 	
+    public void InstantiatePlayer()
+    {
+        player.SetCellSize(CellSize);
+    }
+
     public void InstatntiateUniverseObjects()
     {
         foreach(PrefabCoord prefabCoord in prefabCoords)
@@ -21,6 +27,7 @@ public class Universe : MonoBehaviour {
             GameObject universeObject = GameObject.Instantiate(prefabCoord.prefab);
 
             CellCoordPosition cellCoordPosition = (CellCoordPosition) universeObject.AddComponent(typeof(CellCoordPosition));
+            cellCoordPosition.SetCellSize(CellSize);
             cellCoordPosition.SetLocalPosition(prefabCoord.LocalX, prefabCoord.LocalY, prefabCoord.LocalZ);
             cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
             universeObject.transform.position = cellCoordPosition.GetRealPosition();
@@ -37,7 +44,7 @@ public class Universe : MonoBehaviour {
             Vector3 globalPosDif = cellCoordPosition.GetGlobalPos() - playerGlobalPos;
 
             Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
-            transform.position = (globalPosDif * (int)cellSize) + cellCoordPosition.GetLocalPos();
+            transform.position = (globalPosDif * CellSize) + cellCoordPosition.GetLocalPos();
         }
     }
 

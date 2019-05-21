@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 
 public class CellCoordPosition : MonoBehaviour {
-    public static long CellSize = 100;
-
     public double LocalX;
     public double LocalY;
     public double LocalZ;
@@ -10,6 +8,13 @@ public class CellCoordPosition : MonoBehaviour {
     public long GlobalX;
     public long GlobalY;
     public long GlobalZ;
+
+    private long CellSize;
+
+    public void SetCellSize(long CellSize)
+    {
+        this.CellSize = CellSize;
+    }
 
     public void SetLocalPosition(double LocalX, double LocalY, double LocalZ)
     {
@@ -61,15 +66,15 @@ public class CellCoordPosition : MonoBehaviour {
         }
         if (LocalX < 0)
         {
-            GlobalX -= (int)(LocalX / CellSize) + 1;
+            GlobalX += (int)(LocalX / CellSize) - 1;
         }
         if (LocalY < 0)
         {
-            GlobalY -= (int)(LocalY / CellSize) + 1;
+            GlobalY += (int)(LocalY / CellSize) - 1;
         }
         if (LocalZ < 0)
         {
-            GlobalZ -= (int)(LocalZ / CellSize) + 1;
+            GlobalZ += (int)(LocalZ / CellSize) - 1;
         }
     }
 
@@ -98,46 +103,6 @@ public class CellCoordPosition : MonoBehaviour {
         {
             LocalZ += (Mathf.Abs((int)(LocalZ / CellSize)) + 1) * CellSize;
         }
-    }
-
-    public Vector3 GetSnapVector()
-    {
-        Vector3 snapVector = new Vector3();
-        if(LocalX >= CellSize)
-        {
-            snapVector.x = (int)(LocalX / CellSize);
-        }
-        if (LocalY >= CellSize)
-        {
-            snapVector.y = (int)(LocalY / CellSize);
-        }
-        if (LocalZ >= CellSize)
-        {
-            snapVector.z = (int)(LocalZ / CellSize);
-        }
-        if (LocalX < 0)
-        {
-            snapVector.x = -((int)(LocalX / CellSize) + 1);
-        }
-        if (LocalY < 0)
-        {
-            snapVector.y = -((int)(LocalY / CellSize) + 1);
-        }
-        if (LocalZ < 0)
-        {
-            snapVector.z = -((int)(LocalZ / CellSize) + 1);
-        }
-        return snapVector;
-    }
-
-    public CellCoordPosition(Vector3 localXYZ, double scale = 1){
-        LocalX = localXYZ.x * scale;
-        LocalY = localXYZ.y * scale;
-        LocalZ = localXYZ.z * scale;
-
-        GlobalX = GlobalY = GlobalZ = 0;
-
-        SnapLocal();
     }
 
     public bool SnapLocal()

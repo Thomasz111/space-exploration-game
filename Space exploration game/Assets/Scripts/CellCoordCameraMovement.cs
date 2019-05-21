@@ -9,7 +9,6 @@ public class CellCoordCameraMovement : MonoBehaviour
 	public float rotationSpeed = 120.0f;
     public float speedH = 5.0f;
     public float speedV = 5.0f;
-    public Universe universe;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -17,12 +16,10 @@ public class CellCoordCameraMovement : MonoBehaviour
 	private Vector2 mouseAbsolute;
 	private Vector2 smoothMouse;
     private CellCoordPosition cellCoordPosition;
-    private double cellSize;
 
     void Start()
     {
         cellCoordPosition = (CellCoordPosition) gameObject.GetComponent(typeof(CellCoordPosition));
-        cellSize = CellCoordPosition.CellSize;
     }
 
     void Update()
@@ -47,6 +44,11 @@ public class CellCoordCameraMovement : MonoBehaviour
     public Vector3 GetGlobalPos()
     {
         return cellCoordPosition.GetGlobalPos();
+    }
+
+    public void SetCellSize(long CellSize)
+    {
+        cellCoordPosition.SetCellSize(CellSize);
     }
 
     public void SnapCamera()

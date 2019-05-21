@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,6 @@ MonoBehaviour:
   rotationSpeed: 120
   speedH: 5
   speedV: 5
-  universe: {fileID: 1062545762}
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +507,13 @@ MonoBehaviour:
     LocalY: 50
     LocalZ: 50
     GlobalX: 2
+    GlobalY: 0
+    GlobalZ: 0
+  - prefab: {fileID: 1009732194648596, guid: 22033fe8e0c078d40931b891b3cac66e, type: 2}
+    LocalX: 50
+    LocalY: 50
+    LocalZ: 50
+    GlobalX: 1
     GlobalY: 0
     GlobalZ: 0
   player: {fileID: 534669906}

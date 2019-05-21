@@ -13,4 +13,13 @@ public class PrefabDistance {
     public long GlobalDistanceTo;
     public float LocalDistanceTo;
 
+    public double GetMinDistance()
+    {
+        return (GlobalDistanceFrom * Universe.CellSize) + LocalDistanceFrom;
+    }
+
+    public double GetMaxDistance()
+    {
+        return (GlobalDistanceTo* Universe.CellSize) + LocalDistanceTo;
+    }
 }

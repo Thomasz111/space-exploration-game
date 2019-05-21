@@ -44,10 +44,13 @@ public class CellCoordCameraMovement : MonoBehaviour
         cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
         if (cellCoordPosition.OutOfCell())
         {
-            universe.SnapUniverse(cellCoordPosition.GetSnapVector());
+            //Vector3 snapVector = cellCoordPosition.GetSnapVector();
+            
             cellCoordPosition.UpdateGlobalPos();
             cellCoordPosition.SnapCoordsBackToCell();
             transform.position = cellCoordPosition.GetLocalPos();
+
+            universe.SnapUniverse(cellCoordPosition.GetGlobalPos());
         }
     }
 

@@ -32,7 +32,7 @@ public class CellCoordPosition : MonoBehaviour {
 
     public Vector3 GetGlobalPos()
     {
-        return new Vector3(GlobalX, GlobalX, GlobalX);
+        return new Vector3(GlobalX, GlobalY, GlobalZ);
     }
 
     public bool OutOfCell() {
@@ -105,27 +105,27 @@ public class CellCoordPosition : MonoBehaviour {
         Vector3 snapVector = new Vector3();
         if(LocalX >= CellSize)
         {
-            snapVector.x = (int)(LocalX / CellSize) * CellSize;
+            snapVector.x = (int)(LocalX / CellSize);
         }
         if (LocalY >= CellSize)
         {
-            snapVector.y = (int)(LocalY / CellSize) * CellSize;
+            snapVector.y = (int)(LocalY / CellSize);
         }
         if (LocalZ >= CellSize)
         {
-            snapVector.z = (int)(LocalZ / CellSize) * CellSize;
+            snapVector.z = (int)(LocalZ / CellSize);
         }
         if (LocalX < 0)
         {
-            snapVector.x = -((int)(LocalX / CellSize) + 1) * CellSize;
+            snapVector.x = -((int)(LocalX / CellSize) + 1);
         }
         if (LocalY < 0)
         {
-            snapVector.y = -((int)(LocalY / CellSize) + 1) * CellSize;
+            snapVector.y = -((int)(LocalY / CellSize) + 1);
         }
         if (LocalZ < 0)
         {
-            snapVector.z = -((int)(LocalZ / CellSize) + 1) * CellSize;
+            snapVector.z = -((int)(LocalZ / CellSize) + 1);
         }
         return snapVector;
     }

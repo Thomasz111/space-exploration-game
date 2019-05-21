@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Universe : MonoBehaviour {
 
-    public double cellSize = 500.0;
+    public readonly double cellSize = 100.0;
     public List<PrefabCoord> prefabCoords = new List<PrefabCoord>();
 
     private List<GameObject> universeObjects = new List<GameObject>();
@@ -19,8 +19,7 @@ public class Universe : MonoBehaviour {
         {
             GameObject universeObject = GameObject.Instantiate(prefabCoord.prefab);
 
-            universeObject.AddComponent(typeof(CellCoordPosition));
-            CellCoordPosition cellCoordPosition = (CellCoordPosition) universeObject.GetComponent(typeof(CellCoordPosition));
+            CellCoordPosition cellCoordPosition = (CellCoordPosition) universeObject.AddComponent(typeof(CellCoordPosition));
             cellCoordPosition.SetLocalPosition(prefabCoord.LocalX, prefabCoord.LocalY, prefabCoord.LocalZ);
             cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
             universeObject.transform.position = cellCoordPosition.GetRealPosition();
@@ -29,12 +28,15 @@ public class Universe : MonoBehaviour {
         }
     }
 
-    public void SnapUniverse(Vector3 snapVector)
+    public void SnapUniverse(Vector3 playerGlobalPos)
     {
         foreach(GameObject universeObject in universeObjects)
         {
+            CellCoordPosition cellCoordPosition = (CellCoordPosition)universeObject.GetComponent(typeof(CellCoordPosition));
+            Vector3 globalPosDif = cellCoordPosition.GetGlobalPos() - playerGlobalPos;
+
             Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
-            transform.Translate(-snapVector);
+            transform.position = (globalPosDif * (int)cellSize) + cellCoordPosition.GetLocalPos();
         }
     }
 

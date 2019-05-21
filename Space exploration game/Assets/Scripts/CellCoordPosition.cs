@@ -45,13 +45,6 @@ public class CellCoordPosition : MonoBehaviour {
             LocalX < 0 || LocalY < 0 || LocalZ < 0;
     }
 
-    public bool RelativelyOutOfCell(Vector3 origin)
-    {
-        Vector3 LocalCoordDiff = new Vector3(GlobalX - origin.x, GlobalY - origin.y, GlobalZ - origin.z) * CellSize;
-        return LocalX >= LocalCoordDiff.x + CellSize || LocalY >= LocalCoordDiff.y + CellSize || LocalZ >= LocalCoordDiff.z + CellSize ||
-            LocalX < LocalCoordDiff.x || LocalY < LocalCoordDiff.y || LocalZ < LocalCoordDiff.z;
-    }
-
     public Vector3 GetRealPosition()
     {
         return new Vector3((float)(GlobalX * CellSize + LocalX), (float)(GlobalY * CellSize + LocalY), (float)(GlobalZ * CellSize + LocalZ));

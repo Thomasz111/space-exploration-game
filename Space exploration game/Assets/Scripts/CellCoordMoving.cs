@@ -13,11 +13,13 @@ public class CellCoordMoving : MonoBehaviour {
     }
 	
 	void Update () {
-        cellCoordPosition.SetLocalPosition(transform.position.x, transform.position.y, transform.position.z);
-        if (cellCoordPosition.RelativelyOutOfCell(playerPosition.GetGlobalPos()))
+        Vector3 localCoordDiff = (cellCoordPosition.GetGlobalPos() - playerPosition.GetGlobalPos()) * Universe.CellSize;
+        Vector3 localPosition = new Vector3(transform.position.x - localCoordDiff.x, transform.position.y - localCoordDiff.y, transform.position.z - localCoordDiff.z);
+        cellCoordPosition.SetLocalPosition(localPosition.x, localPosition.y, localPosition.z);
+        if (cellCoordPosition.OutOfCell())
         {
-            //cellCoordPosition.RelativelyUpdateGlobalPos(playerPosition.GetGlobalPos());
-            //cellCoordPosition.SnapCoordsBackToCell();
+            cellCoordPosition.UpdateGlobalPos();
+            cellCoordPosition.SnapCoordsBackToCell();
         }
     }
 }

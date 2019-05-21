@@ -40,12 +40,17 @@ public class Universe : MonoBehaviour {
     {
         foreach(GameObject universeObject in universeObjects)
         {
-            CellCoordPosition cellCoordPosition = (CellCoordPosition)universeObject.GetComponent(typeof(CellCoordPosition));
-            Vector3 globalPosDif = cellCoordPosition.GetGlobalPos() - playerGlobalPos;
-
-            Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
-            transform.position = (globalPosDif * CellSize) + cellCoordPosition.GetLocalPos();
+            TranslateObject(universeObject, playerGlobalPos);
         }
+    }
+
+    public void TranslateObject(GameObject universeObject, Vector3 playerGlobalPos)
+    {
+        CellCoordPosition cellCoordPosition = (CellCoordPosition)universeObject.GetComponent(typeof(CellCoordPosition));
+        Vector3 globalPosDif = cellCoordPosition.GetGlobalPos() - playerGlobalPos;
+
+        Transform transform = (Transform)(universeObject.GetComponent(typeof(Transform)));
+        transform.position = (globalPosDif * CellSize) + cellCoordPosition.GetLocalPos();
     }
 
     void Update () {

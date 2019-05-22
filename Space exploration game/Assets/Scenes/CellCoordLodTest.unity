@@ -502,18 +502,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCoords:
-  - prefab: {fileID: 1116628491053128, guid: ce97f22aa605e15469999924216521e7, type: 2}
-    LocalX: 50
-    LocalY: 50
-    LocalZ: 50
-    GlobalX: 2
-    GlobalY: 0
-    GlobalZ: 0
   - prefab: {fileID: 1009732194648596, guid: 22033fe8e0c078d40931b891b3cac66e, type: 2}
     LocalX: 50
     LocalY: 50
     LocalZ: 50
-    GlobalX: 1
+    GlobalX: 2
     GlobalY: 0
     GlobalZ: 0
   player: {fileID: 534669906}

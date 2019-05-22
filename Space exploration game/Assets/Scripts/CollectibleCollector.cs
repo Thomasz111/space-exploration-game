@@ -8,7 +8,9 @@ public class CollectibleCollector : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        points++;
-        GameObject.Destroy(other.gameObject);
+        if (other.gameObject.tag.Equals("Collectible")) {
+            points++;
+            GameObject.Destroy(other.gameObject);
+        }
     }
 }

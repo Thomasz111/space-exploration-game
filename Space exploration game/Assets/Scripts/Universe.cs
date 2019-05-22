@@ -20,6 +20,16 @@ public class Universe : MonoBehaviour {
         player.SetCellSize(CellSize);
     }
 
+    public void AddUniverseObject(GameObject universeObject)
+    {
+        universeObjects.Add(universeObject);
+    }
+
+    public long GetCellSize()
+    {
+        return CellSize;
+    }
+
     public void InstatntiateUniverseObjects()
     {
         foreach(PrefabCoord prefabCoord in prefabCoords)
@@ -40,7 +50,8 @@ public class Universe : MonoBehaviour {
     {
         foreach(GameObject universeObject in universeObjects)
         {
-            TranslateObject(universeObject, playerGlobalPos);
+            if(universeObject != null)
+                TranslateObject(universeObject, playerGlobalPos);
         }
     }
 

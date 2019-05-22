@@ -8,8 +8,9 @@ public class SkyboxCamera : MonoBehaviour {
     public Transform player;
 
 	void Start () {
-		
-	}
+        transform.position = Vector3.zero;
+
+    }
 	
 	void Update () {
         transform.rotation = player.rotation;

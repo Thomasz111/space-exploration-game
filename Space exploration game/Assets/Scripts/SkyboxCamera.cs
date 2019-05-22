@@ -9,7 +9,6 @@ public class SkyboxCamera : MonoBehaviour {
 
 	void Start () {
         transform.position = Vector3.zero;
-
     }
 	
 	void Update () {

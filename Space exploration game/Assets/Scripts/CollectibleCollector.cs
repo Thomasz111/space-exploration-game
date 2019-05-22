@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class CollectibleCollector : MonoBehaviour {
 
+    public int points = 0;
+
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        points++;
+        GameObject.Destroy(other.gameObject);
     }
 }

@@ -21,13 +21,13 @@ public class LodObject : MonoBehaviour {
         
         foreach(PrefabDistance prefabDistance in prefabDistances)
         {
-            double distance = CellCoordUtils.Distance(playerPosition, lodObjectPosition);
-            if (distance > prefabDistance.GetMinDistance() && distance < prefabDistance.GetMaxDistance())
+            double distance = CellCoordUtils.Distance(playerPosition, lodObjectPosition, lodObjectPosition.GetCellSize());
+            if (distance > prefabDistance.GetMinDistance(lodObjectPosition.GetCellSize()) && distance < prefabDistance.GetMaxDistance(lodObjectPosition.GetCellSize()))
             {
                 if(distance < prevMinDistance || distance > prevMaxDistance)
                 {
-                    prevMinDistance = prefabDistance.GetMinDistance();
-                    prevMaxDistance = prefabDistance.GetMaxDistance();
+                    prevMinDistance = prefabDistance.GetMinDistance(lodObjectPosition.GetCellSize());
+                    prevMaxDistance = prefabDistance.GetMaxDistance(lodObjectPosition.GetCellSize());
 
                     GameObject.Destroy(currentObject);
                     currentObject = GameObject.Instantiate(prefabDistance.prefab);

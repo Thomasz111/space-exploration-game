@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Universe : MonoBehaviour {
 
-    public static long CellSize = 100;
+    public long CellSize = 100;
     public List<PrefabCoord> prefabCoords = new List<PrefabCoord>();
     public CellCoordCameraMovement player;
 

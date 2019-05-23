@@ -4,38 +4,38 @@ using UnityEngine;
 
 public class CellCoordUtils {
 
-    public static double Distance(CellCoordPosition a, CellCoordPosition b)
+    public static double Distance(CellCoordPosition a, CellCoordPosition b, long CellSize)
     {
-        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * Universe.CellSize;
-        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * Universe.CellSize;
-        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * Universe.CellSize;
+        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * CellSize;
+        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * CellSize;
+        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * CellSize;
 
         return System.Math.Sqrt(x * x + y * y + z * z);
     }
 
-    public static double Distance(ref CellCoordPosition a, ref CellCoordPosition b)
+    public static double Distance(ref CellCoordPosition a, ref CellCoordPosition b, long CellSize)
     {
-        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * Universe.CellSize;
-        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * Universe.CellSize;
-        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * Universe.CellSize;
+        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * CellSize;
+        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * CellSize;
+        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * CellSize;
 
         return System.Math.Sqrt(x * x + y * y + z * z);
     }
 
-    public static double SqrDistance(CellCoordPosition a, CellCoordPosition b)
+    public static double SqrDistance(CellCoordPosition a, CellCoordPosition b, long CellSize)
     {
-        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * Universe.CellSize;
-        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * Universe.CellSize;
-        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * Universe.CellSize;
+        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * CellSize;
+        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * CellSize;
+        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * CellSize;
 
         return x * x + y * y + z * z;
     }
 
-    public static double SqrDistance(ref CellCoordPosition a, ref CellCoordPosition b)
+    public static double SqrDistance(ref CellCoordPosition a, ref CellCoordPosition b, long CellSize)
     {
-        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * Universe.CellSize;
-        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * Universe.CellSize;
-        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * Universe.CellSize;
+        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * CellSize;
+        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * CellSize;
+        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * CellSize;
 
         return x * x + y * y + z * z;
     }
@@ -67,11 +67,11 @@ public class CellCoordUtils {
         return false;
     }
 
-    public static Vector3 Direction(ref CellCoordPosition a, ref CellCoordPosition b)
+    public static Vector3 Direction(ref CellCoordPosition a, ref CellCoordPosition b, long CellSize)
     {
-        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * Universe.CellSize;
-        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * Universe.CellSize;
-        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * Universe.CellSize;
+        var x = b.LocalX - a.LocalX + (b.GlobalX - a.GlobalX) * CellSize;
+        var y = b.LocalY - a.LocalY + (b.GlobalY - a.GlobalY) * CellSize;
+        var z = b.LocalZ - a.LocalZ + (b.GlobalZ - a.GlobalZ) * CellSize;
         var m = System.Math.Sqrt(x * x + y * y + z * z);
 
         if (m > 0.0)
@@ -84,27 +84,27 @@ public class CellCoordUtils {
         return new Vector3((float)x, (float)y, (float)z);
     }
 
-    public static CellCoordPosition Lerp(CellCoordPosition a, CellCoordPosition b, double t)
+    public static CellCoordPosition Lerp(CellCoordPosition a, CellCoordPosition b, double t, long CellSize)
     {
         var o = a;
 
-        o.LocalX += ((b.GlobalX - a.GlobalX) * Universe.CellSize + b.LocalX - a.LocalX) * t;
-        o.LocalY += ((b.GlobalY - a.GlobalY) * Universe.CellSize + b.LocalY - a.LocalY) * t;
-        o.LocalZ += ((b.GlobalZ - a.GlobalZ) * Universe.CellSize + b.LocalZ - a.LocalZ) * t;
+        o.LocalX += ((b.GlobalX - a.GlobalX) * CellSize + b.LocalX - a.LocalX) * t;
+        o.LocalY += ((b.GlobalY - a.GlobalY) * CellSize + b.LocalY - a.LocalY) * t;
+        o.LocalZ += ((b.GlobalZ - a.GlobalZ) * CellSize + b.LocalZ - a.LocalZ) * t;
 
         o.SnapLocal();
 
         return o;
     }
 
-    public static Vector3 Vector(CellCoordPosition a, CellCoordPosition b)
+    public static Vector3 Vector(CellCoordPosition a, CellCoordPosition b, long CellSize)
     {
-        var ax = a.LocalX + a.GlobalX * Universe.CellSize;
-        var ay = a.LocalY + a.GlobalY * Universe.CellSize;
-        var az = a.LocalZ + a.GlobalZ * Universe.CellSize;
-        var bx = b.LocalX + b.GlobalX * Universe.CellSize;
-        var by = b.LocalY + b.GlobalY * Universe.CellSize;
-        var bz = b.LocalZ + b.GlobalZ * Universe.CellSize;
+        var ax = a.LocalX + a.GlobalX * CellSize;
+        var ay = a.LocalY + a.GlobalY * CellSize;
+        var az = a.LocalZ + a.GlobalZ * CellSize;
+        var bx = b.LocalX + b.GlobalX * CellSize;
+        var by = b.LocalY + b.GlobalY * CellSize;
+        var bz = b.LocalZ + b.GlobalZ * CellSize;
 
         var x = bx - ax;
         var y = by - ay;

@@ -17,6 +17,7 @@ uniform float	_CloudSpeed;
 uniform float4	_Color1;
 uniform float4	_Color2;
 uniform float	_AirGlowStrength;
+uniform float4 _StarPosition;
 
 // ATMOSPHERE VARIABLE
 
@@ -88,7 +89,8 @@ float2 	getShadow(float3 posWorld, float3 planetShadowPos, float planetShadowSca
 	// SOFT SPHERE SHADOW
 	// port of https://en.wikibooks.org/wiki/Cg_Programming/Unity/Soft_Shadows_of_Spheres
 
-	float3 lightDirection = _WorldSpaceLightPos0;
+	//float3 	viewDirection = normalize(_WorldSpaceCameraPos - posWorld);
+	float3 lightDirection = normalize(_StarPosition.xyz - planetShadowPos);
 
 	// computation of level of shadowing w  
 	float3 sphereDirection = planetShadowPos - posWorld;

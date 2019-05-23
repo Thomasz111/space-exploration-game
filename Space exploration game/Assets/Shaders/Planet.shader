@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Planet/PlanetDirectional"
+Shader "Planet/Planet"
 {
 	Properties
 	{
@@ -18,7 +18,9 @@ Shader "Planet/PlanetDirectional"
 		_Color1("Color 1", Color) = (0, 255, 31, 0)
 		_Color2("Color 2", Color) = (226, 183, 25, 0)
 		_AirGlowStrength("Air Glow strength", Range(0, 2)) = 0.2
+		_StarPosition("Star position", Vector) = (0,0,0,0)
 	}
+	
 	SubShader
 	{
 		Tags
@@ -37,7 +39,7 @@ Shader "Planet/PlanetDirectional"
 			CGPROGRAM
 			#include "UnityCG.cginc"
 
-			#include "PlanetSharedDirectional.cginc"
+			#include "PlanetShared.cginc"
 			#pragma vertex vert  
 			#pragma fragment frag
 			#pragma target 3.0
@@ -105,7 +107,9 @@ Shader "Planet/PlanetDirectional"
 				fFar -= fNear;
 				float fDepth = exp((fInnerRadius - fOuterRadius) / fScaleDepth);
 				float fCameraAngle = dot(-v3Ray, v3Pos) / length(v3Pos);	
-				float fLightAngle = dot(_WorldSpaceLightPos0, v3Pos) / length(v3Pos);
+				//float4 worldSpaceLightPosTtemp = normalize(float4(_StarPosition.x - output.posWorld.x,_StarPosition.y - output.posWorld.y,_StarPosition.z - output.posWorld.z,1));			
+				float4 worldSpaceLightPosTtemp = normalize(_StarPosition - output.posWorld);
+				float fLightAngle = dot(worldSpaceLightPosTtemp, v3Pos) / length(v3Pos);
 				float fCameraScale = scale(fCameraAngle);
 				float fLightScale = scale(fLightAngle);
 				float fCameraOffset = fDepth*fCameraScale;
@@ -225,9 +229,10 @@ Shader "Planet/PlanetDirectional"
 				float3 normalDirection = normalize(mul(localCoords, local2WorldTranspose));
 
 				float3 viewDirection = normalize(_WorldSpaceCameraPos - input.posWorld.xyz);
-				
-				float3 lightDirection = normalize(_WorldSpaceLightPos0.xyz);
-				
+				float3 lightDirection;
+				//float4 worldSpaceLightPosTtemp = float4(_StarPosition.x - input.posWorld.x,_StarPosition.y - input.posWorld.y,_StarPosition.z - input.posWorld.z,1);
+				//lightDirection = normalize(worldSpaceLightPosTtemp.xyz);
+				lightDirection = normalize((_StarPosition - input.posWorld).xyz);
 				float3 diff = _LightColor0.rgb * max(0, dot(lightDirection, normalize(normalDirection + (0.2 * lightDirection))));
 				float3 spec;
 
@@ -277,7 +282,7 @@ Shader "Planet/PlanetDirectional"
 
 			CGPROGRAM
 			#include "UnityCG.cginc"
-			#include "PlanetSharedDirectional.cginc"
+			#include "PlanetShared.cginc"
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma multi_compile ATMO_ON ATMO_OFF
@@ -344,8 +349,12 @@ Shader "Planet/PlanetDirectional"
 				{
 					float fHeight = length(v3SamplePoint);
 					fDepth = exp(fScaleOverScaleDepth * (fInnerRadius - fHeight));				
-					float fLightAngle = dot(_WorldSpaceLightPos0, v3SamplePoint) / fHeight;
-					float fLightAngle2 = -dot(_WorldSpaceLightPos0, v3SamplePoint) / fHeight;
+					//float3 v3Pos2 = mul(unity_ObjectToWorld, v.vertex).xyz;
+					//float4 worldSpaceLightPosTtemp = normalize(float4(_StarPosition.x - v3Pos2.x,_StarPosition.y - v3Pos2.y,_StarPosition.z - v3Pos2.z,0));
+					float4 v3Pos2 = mul(unity_ObjectToWorld, v.vertex);
+					float4 worldSpaceLightPosTtemp = normalize(_StarPosition - v3Pos2);
+					float fLightAngle = dot(worldSpaceLightPosTtemp, v3SamplePoint) / fHeight;
+					float fLightAngle2 = -dot(worldSpaceLightPosTtemp, v3SamplePoint) / fHeight;
 					float fCameraAngle = dot(v3Ray, v3SamplePoint) / fHeight;
 					float fScatter = (fStartOffset + fDepth*(scale(fLightAngle) - scale(fCameraAngle)));
 					float fScatter2 = (fStartOffset + fDepth*(scale(fLightAngle2) - scale(fCameraAngle)));
@@ -425,7 +434,8 @@ Shader "Planet/PlanetDirectional"
 
 				#if ATMO_ON
 
-				float fCos = dot(_WorldSpaceLightPos0, input.t0) / length(input.t0);
+				float4 worldSpaceLightPosTtemp = normalize(float4(_StarPosition.x - input.posWorld.x,_StarPosition.y - input.posWorld.y,_StarPosition.z - input.posWorld.z,0));
+				float fCos = dot(worldSpaceLightPosTtemp, input.t0) / length(input.t0);
 				float fCos2 = fCos*fCos;
 				col = getRayleighPhase(fCos2) * input.c0 + getMiePhase(fCos, fCos2) * input.c1;
 				col += input.c2 * _Color1 *_AirGlowStrength;

@@ -6,7 +6,7 @@
 
 // Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
-Shader "Planet/RingsDirectional"
+Shader "Planet/Rings"
 {
 	Properties
 	{
@@ -34,7 +34,7 @@ Shader "Planet/RingsDirectional"
 			#pragma multi_compile MOBILE_ON MOBILE_OFF
 
 			#include "UnityCG.cginc"
-			#include "PlanetSharedDirectional.cginc"
+			#include "PlanetShared.cginc"
 
 			float4 _LightColor0;
 

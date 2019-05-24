@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -235,6 +235,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11880066bccc4da48b7332d084fef98c, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &274164009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 105034, guid: ffcfc7f8251aa064b9a020dc20fe2b9b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1364756886}
 --- !u!1001 &493780712
 Prefab:
   m_ObjectHideFlags: 0
@@ -468,6 +473,7 @@ GameObject:
   - component: {fileID: 1062545761}
   - component: {fileID: 1062545762}
   - component: {fileID: 1062545763}
+  - component: {fileID: 1062545764}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -538,6 +544,19 @@ MonoBehaviour:
   - {fileID: 1495260723135262, guid: 3c7983dfc5bc442409eabe8245740d02, type: 2}
   NumOfCollectibles: 10
   SpawnAreaSize: 5
+--- !u!114 &1062545764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1062545760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127ebc8add1215b4292ea0d574d64f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet:
+  - {fileID: 274164009}
 --- !u!1 &1063972868
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,6 +683,64 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9926e75a582d7754594a8f499a9dcdb5, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1364756886
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 213
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 168
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.07672695
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.369688
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.18817323
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9066613
+      objectReference: {fileID: 0}
+    - target: {fileID: 413830, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2303080, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1906397387}
+    - target: {fileID: 11402032, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: atmoColor.r
+      value: 0.4301596
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402032, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: atmoColor.g
+      value: 0.3019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402032, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
+      propertyPath: atmoColor.b
+      value: 0.72156864
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ffcfc7f8251aa064b9a020dc20fe2b9b, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1477569213
 GameObject:
@@ -920,6 +997,186 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1906397387
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Earth(Clone)
+  m_Shader: {fileID: 4800000, guid: 1215eaa682a010149b1c8c4ca5f751e4, type: 3}
+  m_ShaderKeywords: ATMO_ON MOBILE_OFF
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: cbfba4aa736aaf44683c85f084604aef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudAndNightTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap:
+        m_Texture: {fileID: 2800000, guid: 0eef2d4dca16cb34c8b4f821250a6428, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudMap4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DiffuseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 2800000, guid: dbdca3f85517f2c4ca466a567e3be2c5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap1:
+        m_Texture: {fileID: 2800000, guid: c66248e52e4c10f43a2ab8622a8eac3d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap2:
+        m_Texture: {fileID: 2800000, guid: 8acda705922b1c445b6057d123730ecd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap3:
+        m_Texture: {fileID: 2800000, guid: 66576972cd9f3f648b74fcb2b49f5f5e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap4:
+        m_Texture: {fileID: 2800000, guid: 20634f4fc901ccd498e6cebe5c94bd1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap5:
+        m_Texture: {fileID: 2800000, guid: 911d96d5716441548b3bb1e9a0e3314a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap6:
+        m_Texture: {fileID: 2800000, guid: 62154ebdbeedb0d42aa601f482bb3a4d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap7:
+        m_Texture: {fileID: 2800000, guid: d2afaacb91ae3ce4989576a3244cdf69, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LightMap8:
+        m_Texture: {fileID: 2800000, guid: 30b1fb1184bd72841bab172ef3d73b39, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 31ca3066ffe779940b4f32e46b8be1ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex1:
+        m_Texture: {fileID: 2800000, guid: 764a323d39c176843bd70699b7bfc084, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex2:
+        m_Texture: {fileID: 2800000, guid: 92873d5834674d748a863b071a5934d3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex3:
+        m_Texture: {fileID: 2800000, guid: 5d5d7a6756ab2834fa6db4d196084000, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex4:
+        m_Texture: {fileID: 2800000, guid: aa5a02c073172d2428f57841f030240e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecMap:
+        m_Texture: {fileID: 2800000, guid: 574cd5e0dec13094598908a2fe333422, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AirGlowStrength: 0.25
+    - _Atmosphere: 1
+    - _AtmosphereMultiply: 1.5
+    - _AtmospherePow: 2
+    - _BumpMapStrength: 0.5
+    - _BumpScale: 1
+    - _CloudShadowsStrength: 0.1
+    - _CloudSpeed: -0.1
+    - _CloudStrength: 2
+    - _Contrast: 0.6
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _LightMapIntensity: 1
+    - _LightScale: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _Refraction: 1
+    - _Shininess: 4
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    - _atmosphere: 1
+    - _loudShadowsStrength: 0
+    m_Colors:
+    - _AtmoColor: {r: 0.89705884, g: 0.77934545, b: 0.70577425, a: 1}
+    - _AtmosphereColor: {r: 0.1, g: 0.35, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color1: {r: 0, g: 1, b: 0.12332631, a: 0}
+    - _Color2: {r: 0.8862745, g: 0.7176471, b: 0.09803922, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ReflectionColor: {r: 0.28676468, g: 0.25727397, b: 0.20453069, a: 1}
+    - _SpecColor: {r: 0.3897059, g: 0.36188117, b: 0.32666522, a: 1}
+    - _StarPosition: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1995425807
 GameObject:
   m_ObjectHideFlags: 0

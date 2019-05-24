@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Earth
-  m_Shader: {fileID: 4800000, guid: 2e0c34b3774c93542a711016b97aeb1f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1215eaa682a010149b1c8c4ca5f751e4, type: 3}
   m_ShaderKeywords: ATMO_ON MOBILE_OFF
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 8e725d86ffee06841aa827d836e8af67, type: 3}
+        m_Texture: {fileID: 2800000, guid: cbfba4aa736aaf44683c85f084604aef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudAndNightTex:
@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudMap:
-        m_Texture: {fileID: 2800000, guid: affb76b28ded56c4fba5cd0d38450932, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0eef2d4dca16cb34c8b4f821250a6428, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudMap1:
@@ -67,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMap:
-        m_Texture: {fileID: 2800000, guid: 1b75c3e214d35d24390449bd72a75ef8, type: 3}
+        m_Texture: {fileID: 2800000, guid: dbdca3f85517f2c4ca466a567e3be2c5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LightMap1:
@@ -103,7 +103,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f54f3c23108450b41a9f137c58c9efac, type: 3}
+        m_Texture: {fileID: 2800000, guid: 31ca3066ffe779940b4f32e46b8be1ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex1:
@@ -135,7 +135,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecMap:
-        m_Texture: {fileID: 2800000, guid: 0ffbf5e7304a41248b34f692b9a6f1e7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 574cd5e0dec13094598908a2fe333422, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -145,7 +145,7 @@ Material:
     - _AtmospherePow: 2
     - _BumpMapStrength: 0.5
     - _BumpScale: 1
-    - _CloudShadowsStrength: 0.05
+    - _CloudShadowsStrength: 0.1
     - _CloudSpeed: -0.1
     - _CloudStrength: 2
     - _Contrast: 0.6
@@ -169,6 +169,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _atmosphere: 1
+    - _loudShadowsStrength: 0
     m_Colors:
     - _AtmoColor: {r: 0.89705884, g: 0.77934545, b: 0.70577425, a: 1}
     - _AtmosphereColor: {r: 0.1, g: 0.35, b: 1, a: 1}

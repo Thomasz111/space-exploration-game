@@ -11,6 +11,7 @@ Shader "Planet/Rings"
 	Properties
 	{
 		_MainTexRing("Base (RGB) Trans (A)", 2D) = "black" {}
+        _StarPosition("Star position", Vector) = (0,0,0,0)
 	}
 		SubShader
 	{

@@ -78,7 +78,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 332ca1a4f9bc4f74b94f36a6ced17ab0, type: 2}
+  - {fileID: 2100000, guid: 177a67f810fe8784a8e93cc549dd2830, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,7 +113,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 349ebbfa85ed38443b215d3e6dd130e8, type: 2}
+  - {fileID: 2100000, guid: ddf6d9118493959488cba9d337d4dee0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,14 +155,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 102140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12a54487c24cbed46857d3197091ad4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fdd852ed6f97ea4c89c6218ed323d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mobileShader: 0
   atmosphere: 1
   updateChangeInRealTime: 1
-  PlanetMaterial: {fileID: 2100000, guid: 349ebbfa85ed38443b215d3e6dd130e8, type: 2}
-  ringMaterial: {fileID: 2100000, guid: 332ca1a4f9bc4f74b94f36a6ced17ab0, type: 2}
+  PlanetMaterial: {fileID: 2100000, guid: ddf6d9118493959488cba9d337d4dee0, type: 2}
+  ringMaterial: {fileID: 2100000, guid: 177a67f810fe8784a8e93cc549dd2830, type: 2}
   hdrExposure: 1
   atmoColor: {r: 0.5661765, g: 0.5661765, b: 0.5661765, a: 1}
   atmoStrength: 10

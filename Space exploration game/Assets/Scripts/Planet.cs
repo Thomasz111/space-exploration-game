@@ -74,6 +74,14 @@ public class Planet : MonoBehaviour
         {
             ringMaterialCopy = Material.Instantiate(ringMaterial);
             InitRingMaterial(ringMaterialCopy);
+            MeshRenderer[] MeshRenderers = GetComponentsInChildren<MeshRenderer>();
+            foreach(MeshRenderer MeshRenderer in MeshRenderers)
+            {
+                if(MeshRenderer.gameObject.name == "Rings")
+                {
+                    MeshRenderer.material = ringMaterialCopy;
+                }
+            }
         }
         GetComponent<MeshRenderer>().material = PlanetMaterialCopy;
     }

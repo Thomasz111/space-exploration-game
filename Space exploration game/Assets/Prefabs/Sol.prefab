@@ -96,7 +96,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa55bec66e0f5447ab07e40b5f8efd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planet: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
+  planets:
+  - prefab: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
+    LocalX: 0
+    LocalY: 0
+    LocalZ: 0
+    GlobalX: 1
+    GlobalY: 0
+    GlobalZ: 0
 --- !u!135 &135041121270870512
 SphereCollider:
   m_ObjectHideFlags: 1

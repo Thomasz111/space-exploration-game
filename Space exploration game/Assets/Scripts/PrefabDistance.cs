@@ -13,13 +13,26 @@ public class PrefabDistance {
     public long GlobalDistanceTo;
     public float LocalDistanceTo;
 
-    public double GetMinDistance(long CellSize)
+    private double minDistance;
+    private double maxDistance;
+
+    public void CalculateMinDistance(long CellSize)
     {
-        return (GlobalDistanceFrom * CellSize) + LocalDistanceFrom;
+        minDistance = (GlobalDistanceFrom * CellSize) + LocalDistanceFrom;
     }
 
-    public double GetMaxDistance(long CellSize)
+    public double GetMinDistance()
     {
-        return (GlobalDistanceTo* CellSize) + LocalDistanceTo;
+        return minDistance;
+    }
+
+    public void CalculateMaxDistance(long CellSize)
+    {
+        maxDistance = (GlobalDistanceTo * CellSize) + LocalDistanceTo;
+    }
+
+    public double GetMaxDistance()
+    {
+        return maxDistance;
     }
 }

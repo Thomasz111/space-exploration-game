@@ -12,9 +12,15 @@ public class LodObject : MonoBehaviour {
     private double prevMaxDistance = 0;
     private double prevMinDistance = 0;
 
-    void Start () {
+    void Start()
+    {
         playerPosition = (CellCoordPosition)GameObject.Find("Player").GetComponent(typeof(CellCoordPosition));
         lodObjectPosition = (CellCoordPosition)gameObject.GetComponent(typeof(CellCoordPosition));
+        foreach (PrefabDistance prefabDistance in prefabDistances)
+        {
+            prefabDistance.CalculateMaxDistance(lodObjectPosition.GetCellSize());
+            prefabDistance.CalculateMinDistance(lodObjectPosition.GetCellSize());
+        }
     }
 	
 	void Update () {
@@ -22,12 +28,12 @@ public class LodObject : MonoBehaviour {
         foreach(PrefabDistance prefabDistance in prefabDistances)
         {
             double distance = CellCoordUtils.Distance(playerPosition, lodObjectPosition, lodObjectPosition.GetCellSize());
-            if (distance > prefabDistance.GetMinDistance(lodObjectPosition.GetCellSize()) && distance < prefabDistance.GetMaxDistance(lodObjectPosition.GetCellSize()))
+            if (distance > prefabDistance.GetMinDistance() && distance < prefabDistance.GetMaxDistance())
             {
                 if(distance < prevMinDistance || distance > prevMaxDistance)
                 {
-                    prevMinDistance = prefabDistance.GetMinDistance(lodObjectPosition.GetCellSize());
-                    prevMaxDistance = prefabDistance.GetMaxDistance(lodObjectPosition.GetCellSize());
+                    prevMinDistance = prefabDistance.GetMinDistance();
+                    prevMaxDistance = prefabDistance.GetMaxDistance();
 
                     GameObject.Destroy(currentObject);
                     currentObject = GameObject.Instantiate(prefabDistance.prefab);

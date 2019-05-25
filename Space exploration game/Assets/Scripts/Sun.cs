@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Sun : MonoBehaviour {
 
-    public GameObject planet;
+    public List<PrefabCoord> planets = new List<PrefabCoord>();
 
-    private GameObject instantiatedPlanet;
+    private List<GameObject> instantiatedPlanets = new List<GameObject>();
+    private Universe universe;
+    private CellCoordPosition cellCoordPosition;
 
     void Start () {
-        instantiatedPlanet = GameObject.Instantiate(planet);
+        universe = (Universe)GameObject.Find("GameManager").GetComponent(typeof(Universe));
+        cellCoordPosition = gameObject.GetComponent<CellCoordPosition>();
+        foreach (PrefabCoord planet in planets)
+        {
+            planet.GlobalX += (long)cellCoordPosition.GetGlobalPos().x;
+            planet.GlobalY += (long)cellCoordPosition.GetGlobalPos().y;
+            planet.GlobalZ += (long)cellCoordPosition.GetGlobalPos().z;
+            planet.LocalX += cellCoordPosition.GetLocalPos().x;
+            planet.LocalY += cellCoordPosition.GetLocalPos().y;
+            planet.LocalZ += cellCoordPosition.GetLocalPos().z;
+            instantiatedPlanets.Add(universe.InstatntiateUniverseObject(planet));
+        }
     }
 	
 	void Update () {
-        instantiatedPlanet.GetComponent<Planet>().SetStarPosition(gameObject.transform.position);
+        foreach(GameObject instantiatedPlanet in instantiatedPlanets)
+            instantiatedPlanet.GetComponent<Planet>().SetStarPosition(gameObject.transform.position);
     }
 }

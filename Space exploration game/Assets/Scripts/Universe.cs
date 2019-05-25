@@ -34,16 +34,22 @@ public class Universe : MonoBehaviour {
     {
         foreach(PrefabCoord prefabCoord in prefabCoords)
         {
-            GameObject universeObject = GameObject.Instantiate(prefabCoord.prefab);
-
-            CellCoordPosition cellCoordPosition = (CellCoordPosition) universeObject.AddComponent(typeof(CellCoordPosition));
-            cellCoordPosition.SetCellSize(CellSize);
-            cellCoordPosition.SetLocalPosition(prefabCoord.LocalX, prefabCoord.LocalY, prefabCoord.LocalZ);
-            cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
-            universeObject.transform.position = cellCoordPosition.GetRealPosition();
-
-            universeObjects.Add(universeObject);
+            InstatntiateUniverseObject(prefabCoord);
         }
+    }
+
+    public GameObject InstatntiateUniverseObject(PrefabCoord prefabCoord)
+    {
+        GameObject universeObject = GameObject.Instantiate(prefabCoord.prefab);
+
+        CellCoordPosition cellCoordPosition = (CellCoordPosition)universeObject.AddComponent(typeof(CellCoordPosition));
+        cellCoordPosition.SetCellSize(CellSize);
+        cellCoordPosition.SetLocalPosition(prefabCoord.LocalX, prefabCoord.LocalY, prefabCoord.LocalZ);
+        cellCoordPosition.SetGlobalPosition(prefabCoord.GlobalX, prefabCoord.GlobalY, prefabCoord.GlobalZ);
+        universeObject.transform.position = cellCoordPosition.GetRealPosition();
+
+        universeObjects.Add(universeObject);
+        return universeObject;
     }
 
     public void SnapUniverse(Vector3 playerGlobalPos)

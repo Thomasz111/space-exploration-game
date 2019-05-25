@@ -19,6 +19,7 @@ public class Planet : MonoBehaviour
     public float atmoStrength = 10.0f;
 
     public float planetRotSpeed = 1.0f;
+    public Vector3 starPosition = Vector3.zero;
 
     private float kr = 0.0025f;
     private float km = 0.0010f;
@@ -70,6 +71,7 @@ public class Planet : MonoBehaviour
         if (PlanetMaterial)
         {
             PlanetMaterialCopy = Material.Instantiate(PlanetMaterial);
+            PlanetMaterialCopy.SetVector("_StarPosition", starPosition);
             InitMaterial(PlanetMaterialCopy);
         }
         if (ringMaterial)

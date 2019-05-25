@@ -9,10 +9,13 @@ public class Sun : MonoBehaviour {
     private List<GameObject> instantiatedPlanets = new List<GameObject>();
     private Universe universe;
     private CellCoordPosition cellCoordPosition;
+    private ShadowManager shadowManager;
 
     void Start () {
         universe = (Universe)GameObject.Find("GameManager").GetComponent(typeof(Universe));
         cellCoordPosition = gameObject.GetComponent<CellCoordPosition>();
+        shadowManager = gameObject.GetComponent<ShadowManager>();
+        int i = 0;
         foreach (PrefabCoord planet in planets)
         {
             planet.GlobalX += (long)cellCoordPosition.GetGlobalPos().x;
@@ -21,8 +24,12 @@ public class Sun : MonoBehaviour {
             planet.LocalX += cellCoordPosition.GetLocalPos().x;
             planet.LocalY += cellCoordPosition.GetLocalPos().y;
             planet.LocalZ += cellCoordPosition.GetLocalPos().z;
-            instantiatedPlanets.Add(universe.InstatntiateUniverseObject(planet));
+            GameObject instantiatedPlanet = universe.InstatntiateUniverseObject(planet);
+            instantiatedPlanets.Add(instantiatedPlanet);
+            shadowManager.planet[i] = instantiatedPlanet;
+            i++;
         }
+        shadowManager.Init(i);
     }
 	
 	void Update () {

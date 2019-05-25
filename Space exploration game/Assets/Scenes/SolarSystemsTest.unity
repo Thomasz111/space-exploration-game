@@ -468,7 +468,6 @@ GameObject:
   - component: {fileID: 1062545761}
   - component: {fileID: 1062545762}
   - component: {fileID: 1062545763}
-  - component: {fileID: 1062545764}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -546,18 +545,6 @@ MonoBehaviour:
   - {fileID: 1495260723135262, guid: 3c7983dfc5bc442409eabe8245740d02, type: 2}
   NumOfCollectibles: 10
   SpawnAreaSize: 5
---- !u!114 &1062545764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1062545760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 127ebc8add1215b4292ea0d574d64f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planet: []
 --- !u!1 &1063972868
 GameObject:
   m_ObjectHideFlags: 0

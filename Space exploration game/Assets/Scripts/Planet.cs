@@ -59,6 +59,11 @@ public class Planet : MonoBehaviour
             this.starPosition = starPosition;
             PlanetMaterialCopy.SetVector("_StarPosition", this.starPosition);
         }
+        if (ringMaterialCopy)
+        {
+            this.starPosition = starPosition;
+            ringMaterialCopy.SetVector("_StarPosition", this.starPosition);
+        }
     }
 
     void Start()
@@ -86,6 +91,7 @@ public class Planet : MonoBehaviour
         if (ringMaterial)
         {
             ringMaterialCopy = Material.Instantiate(ringMaterial);
+            ringMaterialCopy.SetVector("_StarPosition", starPosition);
             InitRingMaterial(ringMaterialCopy);
             MeshRenderer[] MeshRenderers = GetComponentsInChildren<MeshRenderer>();
             foreach(MeshRenderer MeshRenderer in MeshRenderers)

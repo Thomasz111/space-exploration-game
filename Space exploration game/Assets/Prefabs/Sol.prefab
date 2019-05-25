@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23357782329928212}
   - component: {fileID: 135041121270870512}
   - component: {fileID: 114644877456127002}
+  - component: {fileID: 114645966866233794}
   m_Layer: 0
   m_Name: Sol
   m_TagString: Untagged
@@ -104,6 +105,35 @@ MonoBehaviour:
     GlobalX: 1
     GlobalY: 0
     GlobalZ: 0
+  - prefab: {fileID: 102140, guid: 88a5915dd5d74c1458f68c12b9429b50, type: 2}
+    LocalX: 20
+    LocalY: 0
+    LocalZ: 0
+    GlobalX: 1
+    GlobalY: 0
+    GlobalZ: 0
+--- !u!114 &114645966866233794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1820530291334306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127ebc8add1215b4292ea0d574d64f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!135 &135041121270870512
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -18,6 +18,8 @@ public class Planet : MonoBehaviour
     public Color atmoColor = new Color(0, 0, 0);
     public float atmoStrength = 10.0f;
 
+    public float planetRotSpeed = 1.0f;
+
     private float kr = 0.0025f;
     private float km = 0.0010f;
     private float outerScaleFactor = 1.015f;
@@ -84,6 +86,11 @@ public class Planet : MonoBehaviour
             }
         }
         GetComponent<MeshRenderer>().material = PlanetMaterialCopy;
+    }
+
+    void Update()
+    {
+        gameObject.transform.Rotate(new Vector3(0, planetRotSpeed * Time.deltaTime, 0));
     }
 
     void LateUpdate()

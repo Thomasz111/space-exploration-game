@@ -52,6 +52,12 @@ public class Planet : MonoBehaviour
         }
     }
 
+    public void SetStarPosition(Vector3 starPosition)
+    {
+        this.starPosition = starPosition;
+        PlanetMaterialCopy.SetVector("_StarPosition", this.starPosition);
+    }
+
     void Start()
     {
         if (QualitySettings.activeColorSpace == ColorSpace.Gamma)

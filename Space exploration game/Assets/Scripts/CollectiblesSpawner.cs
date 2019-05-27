@@ -12,8 +12,35 @@ public class CollectiblesSpawner : MonoBehaviour {
 
     void Start () {
         universe = (Universe) gameObject.GetComponent(typeof(Universe));
-        SpawnStartingCollectibles();
+        SpawnCollectiblesAroundObjects();
 	}
+
+    private void SpawnCollectiblesAroundObjects()
+    {
+        List<GameObject>  universeObjects = universe.GetUniverseObjects();
+        for(int collectibleNum = 0; collectibleNum < NumOfCollectibles; collectibleNum++)
+        {
+            int randomElementIndex = Random.Range(0, Collectibles.Count);
+            GameObject collectible = GameObject.Instantiate(Collectibles[randomElementIndex]);
+
+            randomElementIndex = Random.Range(0, universeObjects.Count);
+            CellCoordPosition randomObjectPosition = universeObjects[randomElementIndex].GetComponent<CellCoordPosition>();
+
+            CellCoordPosition cellCoordPosition = (CellCoordPosition) collectible.AddComponent(typeof(CellCoordPosition));
+            cellCoordPosition.SetCellSize(universe.GetCellSize());
+
+            cellCoordPosition.SetLocalPosition(Random.Range(0, universe.GetCellSize()), 
+                Random.Range(0, universe.GetCellSize()),
+                Random.Range(0, universe.GetCellSize()));
+            cellCoordPosition.SetGlobalPosition((long)randomObjectPosition.GetGlobalPos().x + Random.Range(-1, 1),
+                (long)randomObjectPosition.GetGlobalPos().y + Random.Range(-1, 1), 
+                (long)randomObjectPosition.GetGlobalPos().z + Random.Range(-1, 1));
+
+            collectible.transform.position = cellCoordPosition.GetRealPosition();
+
+            universe.AddUniverseObject(collectible);
+        }
+    }
 
     private void SpawnStartingCollectibles()
     {

@@ -25,6 +25,11 @@ public class Universe : MonoBehaviour {
         universeObjects.Add(universeObject);
     }
 
+    public List<GameObject> GetUniverseObjects()
+    {
+        return universeObjects;
+    }
+
     public long GetCellSize()
     {
         return CellSize;

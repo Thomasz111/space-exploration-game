@@ -529,6 +529,13 @@ MonoBehaviour:
     GlobalX: 0
     GlobalY: 0
     GlobalZ: 3
+  - prefab: {fileID: 1512285257537270, guid: 7d8f5b8d8d4eb454fa064fdeea86f317, type: 2}
+    LocalX: 60
+    LocalY: 60
+    LocalZ: 60
+    GlobalX: 0
+    GlobalY: 0
+    GlobalZ: 0
   player: {fileID: 534669906}
 --- !u!114 &1062545763
 MonoBehaviour:
@@ -668,6 +675,11 @@ Prefab:
     - target: {fileID: 4285392165090906, guid: 9926e75a582d7754594a8f499a9dcdb5, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20481970328123822, guid: 9926e75a582d7754594a8f499a9dcdb5,
+        type: 2}
+      propertyPath: far clip plane
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9926e75a582d7754594a8f499a9dcdb5, type: 2}

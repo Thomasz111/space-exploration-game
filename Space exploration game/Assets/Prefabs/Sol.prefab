@@ -112,6 +112,13 @@ MonoBehaviour:
     GlobalX: 1
     GlobalY: 0
     GlobalZ: 0
+  - prefab: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
+    LocalX: 10
+    LocalY: 10
+    LocalZ: 0
+    GlobalX: 1
+    GlobalY: 0
+    GlobalZ: 0
 --- !u!114 &114645966866233794
 MonoBehaviour:
   m_ObjectHideFlags: 1

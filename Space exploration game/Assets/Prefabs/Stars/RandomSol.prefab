@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1832355225623266}
+  m_IsPrefabAsset: 1
+--- !u!1 &1832355225623266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4147168482172012}
+  - component: {fileID: 135155727157214758}
+  - component: {fileID: 114249709933521224}
+  - component: {fileID: 114688873348529534}
+  - component: {fileID: 114604370740005824}
+  m_Layer: 0
+  m_Name: RandomSol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4147168482172012
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832355225623266}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -24.723183, y: 23.25381, z: -14.561102}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114249709933521224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832355225623266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127ebc8add1215b4292ea0d574d64f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114604370740005824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832355225623266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efdc24f8dde1b94db70dced24a09cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planets:
+  - {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
+  - {fileID: 102140, guid: 88a5915dd5d74c1458f68c12b9429b50, type: 2}
+  numOfPlanets: 5
+  minGlobalDistance: 0
+  maxGlobalDistance: 1
+--- !u!114 &114688873348529534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832355225623266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c095599309bb84fbddd395b2e2df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDistances:
+  - prefab: {fileID: 1181301535242456, guid: df1d07361f8bb144992787b782d0c0d3, type: 2}
+    GlobalDistanceFrom: 0
+    LocalDistanceFrom: 0
+    GlobalDistanceTo: 5
+    LocalDistanceTo: 0
+  - prefab: {fileID: 1512285257537270, guid: 7d8f5b8d8d4eb454fa064fdeea86f317, type: 2}
+    GlobalDistanceFrom: 5
+    LocalDistanceFrom: 0
+    GlobalDistanceTo: 2000
+    LocalDistanceTo: 0
+--- !u!135 &135155727157214758
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1832355225623266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -93,6 +93,8 @@ MonoBehaviour:
   hdrExposure: 1
   atmoColor: {r: 0.30201122, g: 0.5993452, b: 0.7205882, a: 1}
   atmoStrength: 15
+  planetRotSpeed: 1
+  starPosition: {x: 0, y: 0, z: 0}
 --- !u!135 &13528126
 SphereCollider:
   m_ObjectHideFlags: 1

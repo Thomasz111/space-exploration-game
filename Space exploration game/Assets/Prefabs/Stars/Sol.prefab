@@ -19,11 +19,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4079969565197938}
-  - component: {fileID: 33468139387235786}
-  - component: {fileID: 23357782329928212}
   - component: {fileID: 135041121270870512}
   - component: {fileID: 114644877456127002}
   - component: {fileID: 114645966866233794}
+  - component: {fileID: 114786978199184558}
   m_Layer: 0
   m_Name: Sol
   m_TagString: Untagged
@@ -44,48 +43,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23357782329928212
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820530291334306}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &33468139387235786
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1820530291334306}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114644877456127002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,6 +98,28 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114786978199184558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1820530291334306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c095599309bb84fbddd395b2e2df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDistances:
+  - prefab: {fileID: 1181301535242456, guid: df1d07361f8bb144992787b782d0c0d3, type: 2}
+    GlobalDistanceFrom: 0
+    LocalDistanceFrom: 0
+    GlobalDistanceTo: 5
+    LocalDistanceTo: 0
+  - prefab: {fileID: 1512285257537270, guid: 7d8f5b8d8d4eb454fa064fdeea86f317, type: 2}
+    GlobalDistanceFrom: 5
+    LocalDistanceFrom: 0
+    GlobalDistanceTo: 2000
+    LocalDistanceTo: 0
 --- !u!135 &135041121270870512
 SphereCollider:
   m_ObjectHideFlags: 1

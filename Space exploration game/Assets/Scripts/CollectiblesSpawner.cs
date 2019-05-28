@@ -8,18 +8,11 @@ public class CollectiblesSpawner : MonoBehaviour {
     public int NumOfCollectibles = 10;
     public int SpawnAreaSize = 5;
 
-    private Universe universe;
-
-    void Start () {
-        universe = (Universe) gameObject.GetComponent(typeof(Universe));
-        SpawnCollectiblesAroundObjects();
-	}
-
-    private void SpawnCollectiblesAroundObjects()
-    {
-        //TODO fix so it works after all instantiations
+    public void SpawnCollectiblesAroundObjects(Universe universe)
+    { 
         List<GameObject>  universeObjects = universe.GetUniverseObjects();
-        for(int collectibleNum = 0; collectibleNum < NumOfCollectibles; collectibleNum++)
+        Debug.Log(universeObjects.Count);
+        for (int collectibleNum = 0; collectibleNum < NumOfCollectibles; collectibleNum++)
         {
             int randomElementIndex = Random.Range(0, Collectibles.Count);
             GameObject collectible = GameObject.Instantiate(Collectibles[randomElementIndex]);
@@ -43,7 +36,7 @@ public class CollectiblesSpawner : MonoBehaviour {
         }
     }
 
-    private void SpawnStartingCollectibles()
+    private void SpawnStartingCollectibles(Universe universe)
     {
         for(int collectibleNum = 0; collectibleNum < NumOfCollectibles; collectibleNum++)
         {

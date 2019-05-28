@@ -13,8 +13,18 @@ public class Universe : MonoBehaviour {
     void Start () {
         InstantiatePlayer();
         InstatntiateUniverseObjects();
-	}
-	
+        StartCoroutine(LateStart(1));
+    }
+
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        CollectiblesSpawner collectiblesSpawner = gameObject.GetComponent<CollectiblesSpawner>();
+        collectiblesSpawner.SpawnCollectiblesAroundObjects(this);
+    }
+
+
     public void InstantiatePlayer()
     {
         player.SetCellSize(CellSize);

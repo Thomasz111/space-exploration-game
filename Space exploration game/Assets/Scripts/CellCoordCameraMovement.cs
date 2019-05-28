@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 [RequireComponent(typeof(CellCoordPosition))]
@@ -9,6 +10,7 @@ public class CellCoordCameraMovement : MonoBehaviour
 	public float rotationSpeed = 120.0f;
     public float speedH = 5.0f;
     public float speedV = 5.0f;
+    public Text speedText;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -24,6 +26,7 @@ public class CellCoordCameraMovement : MonoBehaviour
 
     void Update()
     {
+        speedText.text = "Speed: " + flySpeed.ToString();
         ManageRotation();
         ManageTransform();
 	}

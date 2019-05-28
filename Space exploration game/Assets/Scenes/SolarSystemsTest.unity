@@ -331,8 +331,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collectibles:
   - {fileID: 1916969311423858, guid: 46112a09f070cbc4f872c21fdcc7b487, type: 2}
-  NumOfCollectibles: 50
-  SpawnAreaSize: 5
+  NumStartingOfCollectibles: 1
+  NumStartingOfAroundCollectibles: 1
+  SpawnAreaSize: 10
 --- !u!1001 &1144210991
 Prefab:
   m_ObjectHideFlags: 0

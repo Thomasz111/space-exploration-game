@@ -13,7 +13,7 @@ public class Universe : MonoBehaviour {
     void Start () {
         InstantiatePlayer();
         InstatntiateUniverseObjects();
-        StartCoroutine(LateStart(1));
+        StartCoroutine(LateStart(2));
     }
 
 
@@ -22,6 +22,7 @@ public class Universe : MonoBehaviour {
         yield return new WaitForSeconds(waitTime);
         CollectiblesSpawner collectiblesSpawner = gameObject.GetComponent<CollectiblesSpawner>();
         collectiblesSpawner.SpawnCollectiblesAroundObjects(this);
+        collectiblesSpawner.SpawnStartingCollectibles(this);
     }
 
 

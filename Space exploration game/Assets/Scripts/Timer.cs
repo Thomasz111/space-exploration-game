@@ -8,8 +8,20 @@ public class Timer : MonoBehaviour {
     public float timeLeft = 30.0f;
     public Text timeText;
 
+    public bool TimeLeft()
+    {
+        return !(timeLeft > 0);
+    }
+
     void Update () {
-        timeLeft -= Time.deltaTime;
-        timeText.text = "Time left: " + timeLeft.ToString();
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            timeText.text = "Time left: " + timeLeft.ToString();
+        }
+        else
+        {
+            timeText.text = "Time left: 0";
+        }
     }
 }

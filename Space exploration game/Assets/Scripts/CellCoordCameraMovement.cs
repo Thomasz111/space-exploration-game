@@ -31,6 +31,12 @@ public class CellCoordCameraMovement : MonoBehaviour
         ManageTransform();
 	}
 
+    public void StopPlayer()
+    {
+        flySpeed = 0;
+        flySpeedLimit = Vector2.zero;
+    }
+
     private void ManageTransform() {
         // Camera keyboard movement
         if (Input.GetAxis("Mouse ScrollWheel") != 0)

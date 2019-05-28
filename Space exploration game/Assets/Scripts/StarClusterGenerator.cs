@@ -12,7 +12,7 @@ public class StarClusterGenerator : MonoBehaviour {
     private CellCoordPosition clusterCenter;
 
     void Start () {
-        universe = gameObject.GetComponent<Universe>();
+        universe = (Universe)GameObject.Find("GameManager").GetComponent(typeof(Universe));
         clusterCenter = gameObject.GetComponent<CellCoordPosition>();
         InstantiateStarCluster();
     }

@@ -17,6 +17,7 @@ public class CollectiblesSpawner : MonoBehaviour {
 
     private void SpawnCollectiblesAroundObjects()
     {
+        //TODO fix so it works after all instantiations
         List<GameObject>  universeObjects = universe.GetUniverseObjects();
         for(int collectibleNum = 0; collectibleNum < NumOfCollectibles; collectibleNum++)
         {

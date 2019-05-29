@@ -679,12 +679,12 @@ MonoBehaviour:
   CellSize: 1000
   prefabCoords:
   - prefab: {fileID: 1820530291334306, guid: 68854d6840047bc4b9b01e155b506c9b, type: 2}
-    LocalX: 50
-    LocalY: 50
-    LocalZ: 50
-    GlobalX: 8
+    LocalX: 0
+    LocalY: 0
+    LocalZ: 0
+    GlobalX: 0
     GlobalY: 0
-    GlobalZ: 0
+    GlobalZ: 1
   - prefab: {fileID: 1817308231957812, guid: 189628cf3f9f8234789223a4438634b2, type: 2}
     LocalX: 0
     LocalY: 0

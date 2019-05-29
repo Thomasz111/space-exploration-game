@@ -56,17 +56,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planets:
   - prefab: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
-    LocalX: 0
-    LocalY: 0
-    LocalZ: 0
-    GlobalX: 1
+    LocalX: 17
+    LocalY: 3
+    LocalZ: -920
+    GlobalX: 0
     GlobalY: 0
     GlobalZ: 0
   - prefab: {fileID: 102140, guid: 88a5915dd5d74c1458f68c12b9429b50, type: 2}
     LocalX: 20
     LocalY: 0
-    LocalZ: 0
-    GlobalX: 1
+    LocalZ: -950
+    GlobalX: 0
     GlobalY: 0
     GlobalZ: 0
   - prefab: {fileID: 105034, guid: 58bc3c564721a5046916b82ffd760350, type: 2}
